@@ -48,6 +48,37 @@ orgs.newOrg('technology.dataplane-core', 'eclipse-dataplane-core') {
         },
       ],
     },
+    orgs.newRepo('dataplane-sdk-java') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      secret_scanning: "disabled",
+      secret_scanning_push_protection: "disabled",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+      webhooks: [
+        orgs.newRepoWebhook('https://webhook.zenhub.com/webhook/github/v2') {
+          content_type: "json",
+          events+: [
+            "issue_comment",
+            "issues",
+            "label",
+            "member",
+            "meta",
+            "milestone",
+            "pull_request",
+            "pull_request_review",
+            "pull_request_review_comment",
+            "repository",
+            "sub_issues",
+            "team_add"
+          ],
+          secret: "********",
+        },
+      ],
+    },
     orgs.newRepo('dataplane-sdk-net') {
       allow_merge_commit: true,
       allow_update_branch: false,
