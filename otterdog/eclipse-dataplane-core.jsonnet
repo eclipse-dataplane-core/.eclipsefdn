@@ -16,6 +16,17 @@ orgs.newOrg('technology.dataplane-core', 'eclipse-dataplane-core') {
       default_workflow_permissions: "write",
     },
   },
+  secrets+: [
+    orgs.newOrgSecret('CRATES_API_TOKEN') {
+     value: "pass:bots/technology.dataplane-core/crates.io/api-token",
+    },
+    orgs.newOrgSecret('DOCKER_HUB_TOKEN') {
+      value: "pass:bots/technology.dataplane-core/docker.com/api-token",
+    },
+    orgs.newOrgSecret('DOCKER_HUB_USER') {
+      value: "pass:bots/technology.dataplane-core/docker.com/username",
+    },
+  ],
   _repositories+:: [
     orgs.newRepo('dataplane-sdk-go') {
       allow_merge_commit: true,
