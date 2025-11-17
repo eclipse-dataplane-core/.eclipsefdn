@@ -26,6 +26,21 @@ orgs.newOrg('technology.dataplane-core', 'eclipse-dataplane-core') {
     orgs.newOrgSecret('DOCKER_HUB_USER') {
       value: "pass:bots/technology.dataplane-core/docker.com/username",
     },
+    orgs.newOrgSecret('GPG_KEY_ID') {
+      value: "pass:bots/technology.dataplane-core/gpg/key_id",
+    },
+    orgs.newOrgSecret('GPG_PASSPHRASE') {
+      value: "pass:bots/technology.dataplane-core/gpg/passphrase",
+    },
+    orgs.newOrgSecret('GPG_PRIVATE_KEY') {
+      value: "pass:bots/technology.dataplane-core/gpg/secret-subkeys.asc",
+    },
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
+      value: "pass:bots/technology.dataplane-core/central.sonatype.org/token-password",
+    },
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
+      value: "pass:bots/technology.dataplane-core/central.sonatype.org/token-username",
+    },
   ],
   _repositories+:: [
     orgs.newRepo('dataplane-sdk-go') {
