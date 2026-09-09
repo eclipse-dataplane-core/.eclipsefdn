@@ -106,6 +106,7 @@ orgs.newOrg('technology.dataplane-core', 'eclipse-dataplane-core') {
       ],
     },
     orgs.newRepo('dataplane-sdk-net') {
+      archived: true,
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
